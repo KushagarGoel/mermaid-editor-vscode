@@ -1,0 +1,66 @@
+{
+  "name": "mermaid-editor",
+  "displayName": "Mermaid Editor",
+  "description": "Preview and edit Mermaid diagrams natively",
+  "version": "1.0.0",
+  "publisher": "yourpublishername",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/mermaid-editor-vscode"
+  },
+  "engines": {
+    "vscode": "^1.108.0"
+  },
+  "categories": [
+    "Visualization",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onCommand:mermaid-editor.preview"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "mermaid",
+        "extensions": [
+          ".mmd",
+          ".mermaid"
+        ],
+        "aliases": [
+          "Mermaid",
+          "mermaid"
+        ]
+      }
+    ],
+    "commands": [
+      {
+        "command": "mermaid-editor.preview",
+        "title": "Mermaid-Editor: Open Preview",
+        "category": "Mermaid",
+        "icon": "$(preview)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.108.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0"
+  },
+  "dependencies": {
+    "mermaid": "^11.12.3"
+  }
+}
