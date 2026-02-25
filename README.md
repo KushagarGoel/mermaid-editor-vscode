@@ -16,6 +16,8 @@ Seamlessly preview and edit [Mermaid](https://mermaid.js.org/) diagrams right in
 2. Run the command **Mermaid-Editor: Open Preview** via the Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`).
 3. Edit your mermaid code and see the diagram update live!
 
+![Demo](assets/demo.gif)
+
 ## Extension Settings
 
 No settings are currently required.
