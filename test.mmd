@@ -1,0 +1,28 @@
+flowchart TD
+    A[Start: loanStatus] --> B[Retrieve stored lender applicationId]
+    B --> C{ApplicationId found?}
+    C -->|No| D[Pass FAILED to LSP - End]
+    C -->|Yes| E[Call Status Check API with max 3 retries]
+    E --> F{Status Check Response}
+    F -->|FAILURE| D
+    F -->|SUCCESS| G[Extract loan_status and reAttempt from response]
+    G --> H[Apply status mapping logic]
+    H --> I{Map based on LSP Status, Capture Status, Lender Status}
+
+    I -->|REJECTED statuses| J[Pass REJECTED to LSP - End]
+    I -->|AGREEMENT_SIGNED| K[Pass AGREEMENT_SIGNED to LSP - End]
+    I -->|GRANTED + PENDING capture| L[Pass ACTIVE to LSP - End]
+    I -->|GRANTED| M[Pass GRANTED to LSP - End]
+    I -->|KYC_INITIATED| N[Pass OFFER_ACCEPTED to LSP - End]
+    I -->|KYC_COMPLETED| O[Pass KYC_COMPLETED to LSP - End]
+    I -->|KYC_REJECTED + reAttempt=true| N
+    I -->|KYC_REJECTED + reAttempt=false| P[Pass KYC_REJECTED to LSP - End]
+    I -->|MANDATE_COMPLETED| Q[Pass REPAYMENT_SETUP_COMPLETED to LSP - End]
+    I -->|MANDATE_REJECTED + reAttempt=true| O
+    I -->|MANDATE_REJECTED + reAttempt=false| R[Pass MANDATE_REJECTED to LSP - End]
+    I -->|AGREEMENT_COMPLETED| S[Pass AGREEMENT_COMPLETED to LSP - End]
+    I -->|AGREEMENT_REJECTED + reAttempt=true| Q
+    I -->|AGREEMENT_REJECTED + reAttempt=false| T[Pass AGREEMENT_REJECTED to LSP - End]
+    I -->|Terminal statuses| U[Fetch loan details from extensible data]
+    U --> V[Pass ACTIVE with loan details to LSP - End]
+    V --> W[Store loanId, txnAmount, lender type - End]

@@ -1,12 +1,12 @@
 {
-  "name": "mermaid-editor",
-  "displayName": "Mermaid Editor",
+  "name": "FunWithMermaid",
+  "displayName": "FunWithMermaid",
   "description": "Preview and edit Mermaid diagrams natively",
   "version": "1.0.0",
-  "publisher": "yourpublishername",
+  "publisher": "WoHoooPublications",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/mermaid-editor-vscode"
+    "url": "https://github.com/KushagarGoel/mermaid-editor-vscode"
   },
   "engines": {
     "vscode": "^1.108.0"
@@ -16,7 +16,7 @@
     "Programming Languages"
   ],
   "activationEvents": [
-    "onCommand:mermaid-editor.preview"
+    "onCommand:FunWithMermaid.preview"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -35,8 +35,8 @@
     ],
     "commands": [
       {
-        "command": "mermaid-editor.preview",
-        "title": "Mermaid-Editor: Open Preview",
+        "command": "FunWithMermaid.preview",
+        "title": "FunWithMermaid: Open Preview",
         "category": "Mermaid",
         "icon": "$(preview)"
       }

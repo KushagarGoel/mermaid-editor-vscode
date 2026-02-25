@@ -2,9 +2,9 @@ import * as vscode from 'vscode';
 import { MermaidPreviewPanel } from './previewPanel';
 
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Congratulations, your extension "mermaid-editor" is now active!');
+	console.log('Congratulations, your extension "FunWithMermaid" is now active!');
 
-	const disposable = vscode.commands.registerCommand('mermaid-editor.preview', () => {
+	const disposable = vscode.commands.registerCommand('FunWithMermaid.preview', () => {
 		MermaidPreviewPanel.createOrShow(context.extensionUri);
 
 		// Send initial content
