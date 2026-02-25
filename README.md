@@ -8,6 +8,7 @@ Seamlessly preview and edit [Mermaid](https://mermaid.js.org/) diagrams right in
 - **Syntax Error Detection:** Quickly spot syntax errors via the preview panel.
 - **Offline Support:** Renders diagrams offline using bundled dependencies.
 - **Light/Dark Mode Support:** Matches your VS Code theme.
+- **Edit On UI:** Edit your mermaid on UI and see code update.
 
 ## Usage
 
